@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kappa Sigma Mu QR Codes</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        margin: 0;
+        padding: 20px;
+        background-color: #00203F;
+        color: #FFF;
+        text-align: center;
+      }
+      .qrcode {
+        display: block;
+        margin: 20px auto;
+        width: 400px;
+        height: 400px;
+        image-rendering: pixelated;
+      }
+      .caption {
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+      }
+      #generated-caption {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Kappa Sigma Mu QR Codes</h1>
+    <img class="qrcode" src="static/generated-poi.png" alt="Generated Kappa Sigma Mu QR code">
+    <p class="caption" id="generated-caption">Generated Kappa Sigma Mu QR code<br>Total number of pixels: <span id="generated-pixels"></span> pixels</p>
+    <h1>Example QR Codes</h1>
+    <img class="qrcode" src="static/example-poi-with-index.png" alt="Example QR code generated with index">
+    <p class="caption">Example QR code generated with index<br>Total number of pixels: <span id="index-pixels"></span> pixels</p>
+    <img class="qrcode" src="static/example-poi-with-address.png" alt="Example QR code generated with address">
+    <p class="caption">Example QR code generated with address<br>Total number of pixels: <span id="address-pixels"></span> pixels</p>
+    <script>
+      window.onload = function() {
+        const generatedImage = document.querySelector('.qrcode[src="static/generated-poi.png"]');
+        const indexImage = document.querySelector('.qrcode[src="static/example-poi-with-index.png"]');
+        const addressImage = document.querySelector('.qrcode[src="static/example-poi-with-address.png"]');
+        const generatedPixels = generatedImage.naturalWidth * generatedImage.naturalHeight;
+        const indexPixels = indexImage.naturalWidth * indexImage.naturalHeight;
+        const addressPixels = addressImage.naturalWidth * addressImage.naturalHeight;
+        document.getElementById('generated-pixels').textContent = `${generatedImage.naturalWidth} x ${generatedImage.naturalHeight} = ${generatedPixels}`;
+        document.getElementById('index-pixels').textContent = `${indexImage.naturalWidth} x ${indexImage.naturalHeight} = ${indexPixels}`;
+        document.getElementById('address-pixels').textContent = `${addressImage.naturalWidth} x ${addressImage.naturalHeight} = ${addressPixels}`;
+      };
+    </script>
+  </body>
+</html>

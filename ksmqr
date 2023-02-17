@@ -1,0 +1,26 @@
+#!/bin/bash
+
+function generate_qr_code() {
+  local filename="$1"
+  local data="$2"
+  qrencode -s 1 -o "$filename" "$data"
+  gm identify -format '%w×%h\n' "$filename"
+  zopflipng -ym "$filename" "$filename"
+}
+
+if [ $# -eq 0 ]; then
+  echo "Usage: ksmqr <Kusama address or index of the current society head>"
+  exit 1
+elif [ $# -gt 1 ]; then
+  echo "Error: Too many arguments"
+  echo "Usage: ksmqr <Kusama address or index of the current society head>"
+  exit 1
+fi
+
+address="$1"
+
+filename="static/generated-poi.png"
+data="kusama:$address"
+generate_qr_code "$filename" "$data"
+echo "QR code generated: $filename"
+xdg-open index.html
