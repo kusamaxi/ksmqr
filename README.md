@@ -15,3 +15,4 @@ To use `ksmqr`, you need to pass either a Kusama address or the index of the cur
 $ ./ksmqr Hg6Zbk4z6Uirzz6Nj28H9XJN85EBzPAmM19JcVEjMkFEbm6
 $ ./ksmqr 4ksmq
 ```
+![image](https://user-images.githubusercontent.com/15621959/220332893-4d7a1d54-2acf-47e8-afd0-150b738f4857.png)
